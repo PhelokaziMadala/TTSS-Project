@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentors - Tech Talent Scorecard System</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="scripts.js" defer></script>
+</head>
+<body>
+  <div class="dashboard-container">
+    <aside class="sidebar">
+       <div class="logo-container" style="display: flex; align-items: center; gap: 0.5rem;">
+            <img src="logo.png" alt="CAPACITI Logo" class="logo-img" style="width: 180px;" />
+            <a href="homePage.html" class="home" style="font-size: 30px; color: #070707; text-decoration: none;">&#8962;</a>
+       </div>
+        <div class="sidebar-logo">
+           <div class="logo-text">TTSS</div>
+        </div>
+
+      <ul class="nav-menu">
+        <li>
+          <a href="admin-dashboardPage.html" class="active">
+            <i class="fas fa-chart-line"></i> Dashboard
+          </a>
+        </li>
+        <li>
+          <a href="Admin-cohortsPage.html">
+            <i class="fas fa-users"></i> Cohorts
+          </a>
+        </li>
+        <li>
+          <a href="admin-groupPage.html">
+            <i class="fas fa-layer-group"></i> Groups
+          </a>
+        </li>
+        <li>
+          <a href="admin-evaluationPage.html">
+            <i class="fas fa-clipboard-check"></i> Evaluations
+          </a>
+        </li>
+        <li>
+          <a href="admin-mentorsPage.html">
+            <i class="fas fa-user-tie"></i> Mentor
+          </a>
+        </li>
+        <li>
+          <a href="admin-students.html">
+            <i class="fas fa-user-graduate"></i> Candidates
+          </a>
+        </li>
+        <li>
+          <a href="admin-reportPage.html">
+            <i class="fas fa-file-alt"></i> Reports
+          </a>
+        </li>
+        <li>
+          <a href="admin-settings.html">
+            <i class="fas fa-cog"></i> Settings
+          </a>
+        </li>
+        <li>
+          <a href="login.html">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </a>
+        </li>
+      </ul>
+    </aside>
+ 
+    <main class="main-content">
+      <div class="dashboard-header">
+        <h1>Support Team Management</h1>
+        <div class="user-profile">
+          <div class="user-avatar">A</div>
+          <div class="user-info">
+           <span class="user-name">Brittany Saptoe</span>
+            <span class="user-role">Talent Development Coach</span>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="form-controls">
+        <button class="btn" onclick="addMentor()">Support Team</button>
+      </div>
+ 
+      <div class="m-card">
+        <table class="evaluation-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Current Cohorts</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>John Smith</td>
+              <td>john.smith@email.com</td>
+              <td>AI/ML</td>
+              <td>Active</td>
+              <td><a href="#" class="view-link">View Profile</a></td>
+            </tr>
+            <tr>
+              <td>Sarah Johnson</td>
+              <td>sarah.j@email.com</td>
+              <td>Data Science</td>
+             
+              <td>Active</td>
+              <td><a href="#" class="view-link">View Profile</a></td>
+            </tr>
+            <tr>
+              <td>Michael Chen</td>
+              <td>m.chen@email.com</td>
+              <td>Cloud Computing</td>
+             
+              <td>Active</td>
+              <td><a href="#" class="view-link">View Profile</a></td>
+            </tr>
+            <tr>
+              <td>Emma Wilson</td>
+              <td>e.wilson@email.com</td>
+              <td>Web Development</td>
+             
+              <td>On Leave</td>
+              <td><a href="#" class="view-link">View Profile</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

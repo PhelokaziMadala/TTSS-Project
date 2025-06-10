@@ -1,0 +1,1850 @@
+/* General Reset */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url('background.png');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  color: #333;
+}
+
+.background {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex-grow: 1;
+  padding: 20px 40px;
+  text-align: center;
+}
+
+/* Header styles */
+header {
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.logo-container img.logo-img {
+  width: 160px;
+  height: auto;
+}
+
+.home {
+  font-size: 3rem;
+  text-decoration: none;
+  color: #0a0a0a;
+  font-weight: bold;
+  margin-left: auto;
+}
+
+/* Title and description */
+.title {
+  font-size: 2.5rem;
+  color: #6a1b9a;
+  margin-bottom: 0rem;
+  font-weight: bold;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  color: #4a148c;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.description {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  font-size: 1rem;
+  color: #444;
+}
+
+/* Feature Cards */
+.features {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  color: #6a1b9a;
+  margin-bottom: 0.5rem;
+}
+
+/* Login Button */
+.login-container {
+  margin-top: 20px;
+}
+
+.login-btn {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  background-color: #6d3fcf;
+  color: white;
+  padding: 12px 28px;
+  font-weight: bold;
+  border-radius: 8px;
+  font-size: 1em;
+}
+
+.login-btn:hover {
+  background: #4a148c;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 10px;
+  font-size: 0.9em;
+  background-color: #eee;
+}
+
+/*End of home page*/
+
+/*Login page style sheet*/
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  width: 100%;
+  padding: 40px;
+  /*background-color: rgba(255, 255, 255, 0.95);*/
+  border-radius: 12px;
+  /*box-shadow: 0 0 15px rgba(0,0,0,0.1);*/
+}
+
+.login-page,
+.signup-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 40px;
+}
+
+.login-left,
+.signup-page {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+.login-right {
+  flex-grow: 1;
+  color: #2f2f92;
+  margin-left: 60px;
+}
+
+.login-right h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.login-right ul {
+  list-style: none;
+  padding: 0;
+  line-height: 1.8;
+}
+
+.logo-img {
+  width: 160px;
+  height: auto;
+}
+
+.sub-logo {
+  font-size: 1.5rem;
+  color: #4a148c;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+/*form page style*/
+form input,
+form select {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+form button.login-btn {
+  margin-top: 15px;
+  width: 100%;
+}
+
+.forgot-link,
+.signup-link,
+.back-login {
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+
+/*End of login page*/
+
+/*Signup page*/
+.signup-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.signup-page {
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.signup-page form {
+  width: 100%;
+  max-width: 400px;
+  background-color: rgba(255, 255, 255, 0.95);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+/*end of signup*/
+
+/*Admins-dashboard page style sheet*/
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 220px;
+  /* slightly narrower to reduce impact */
+  background-color: #f09ccd25;
+  /* softer, lighter gray */
+  color: #0a0a0a;
+  padding: 1.5rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  /* full height */
+  overflow-y: auto;
+  /* enable scroll if content grows */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+  /* soft shadow to distinguish */
+  z-index: 1000;
+  /* ensure it sits behind modals but above background */
+}
+
+.sidebar-logo {
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  color: #481881;
+  font-style: italic;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.nav-menu {
+  list-style: none;
+}
+
+.nav-menu li {
+  margin-bottom: 0.5rem;
+}
+
+.nav-menu a {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  color: #0a0a0a;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: all 0.3s;
+}
+
+.nav-menu a:hover {
+  background-color: rgba(163, 160, 160, 0.1);
+  color: white;
+}
+
+.nav-menu a i {
+  margin-right: 0.5rem;
+  width: 20px;
+  text-align: center;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 250px;
+  padding: 2rem;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #000000;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #eee;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.75rem;
+  font-weight: bold;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-weight: 600;
+  color: dark-blue;
+}
+
+.user-role {
+  font-size: 0.8rem;
+  color: var(--gray);
+}
+
+/* Dashboard Cards */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* 3 columns */
+  grid-auto-rows: auto;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+}
+
+/* Force row 2 cards to span only 2 columns */
+.card-grid .card:nth-child(4) {
+  grid-column: 1 / 2;
+}
+
+.card-grid .card:nth-child(5) {
+  grid-column: 2/ 3;
+}
+
+.card-header {
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  color: var(--dark-blue);
+  margin-bottom: 0.25rem;
+}
+
+.card-subtitle {
+  font-size: 0.9rem;
+  color: var(--gray);
+}
+
+.btn {
+  display: center;
+  text-align: center;
+  text-decoration: none;
+  background-color: #6d3fcf;
+  color: white;
+  padding: 7px 18px;
+  /*font-weight: bold;*/
+  border-radius: 8px;
+  font-size: 1em;
+  margin-top: 1rem;
+}
+
+/* Evaluation table */
+.t-card {
+  background-color: rgb(242, 236, 252);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  /*max-width: 600px;*/
+  padding: 1.5rem;
+}
+
+.evaluation-table {
+  margin: 0 auto;
+  /* centers the table horizontally */
+  width: 100%;
+  /*max-width: 420px;*/
+  border-collapse: collapse;
+  border-radius: 10px;
+  overflow: visible;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.evaluation-table th {
+  background-color: #a68dff;
+  color: rgb(0, 0, 0);
+  font-weight: 600;
+  text-align: left;
+  padding: 1rem;
+}
+
+.evaluation-table td {
+  padding: 1rem;
+  border-bottom: 1px solid #EDF2F7;
+}
+
+.evaluation-table tr:last-child td {
+  border-bottom: none;
+}
+
+.evaluation-table tr:nth-child(even) {
+  background-color: #F7FAFC;
+}
+
+.score-cell {
+  width: 75px;
+  text-align: center;
+}
+
+.score-1,
+.score-2 {
+  background-color: #FED7D7;
+}
+
+.score-3 {
+  background-color: #FEFCBF;
+}
+
+.score-4 {
+  background-color: #C6F6D5;
+}
+
+.score-5 {
+  background-color: #9AE6B4;
+}
+
+.overall-score {
+  font-weight: bold;
+  background-color: #EBF4FF;
+}
+
+/*end of dashboard page*/
+
+/*Cohorts style sheet*/
+.active-cohorts {
+  padding: 20px;
+}
+
+.active-cohorts h2 {
+  margin-bottom: 20px;
+  color: #23395d;
+}
+
+.add-cohort-btn {
+  background-color: #6d3fcf;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.cohorts-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.cohorts-table th {
+  background-color: #f8fafc;
+  color: #4a5568;
+  font-weight: 600;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.cohorts-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.status-active {
+  color: #2f855a;
+  background-color: #c6f6d5;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.875rem;
+}
+
+.action-link {
+  color: #6d3fcf;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.action-link:hover {
+  text-decoration: underline;
+}
+
+/* Add new cohort modal styles - Start */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #4a5568;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.cancel-btn {
+  padding: 8px 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.submit-btn {
+  padding: 8px 16px;
+  background-color: #6d3fcf;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #5d35b0;
+}
+
+/* View student modal styles - Start */
+.student-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.student-modal-content {
+  background-color: white;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.student-list {
+  margin: 20px 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+.student-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.student-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.student-item:last-child {
+  border-bottom: none;
+}
+
+.remove-student {
+  color: #e53e3e;
+  cursor: pointer;
+}
+
+.add-student-form {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f8fafc;
+  border-radius: 8px;
+}
+
+/* View student modal styles - End */
+/* View link style - Start */
+.view-link {
+  color: #6d3fcf;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.view-link:hover {
+  text-decoration: underline;
+}
+
+/* View link style - End */
+
+/*end cohort dashboard*/
+
+/*Evaluations Page style sheet*/
+.evaluation-form-container {
+  padding: 2rem;
+  background-color: #f9f9fc;
+  /* ✅ Light neutral color that won’t overpower score cell colors */
+  border-radius: 10px;
+  /* Optional: soft edge */
+}
+
+.evaluation-controls {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.evaluation-table th {
+  background-color: #ec96c1;
+  border: 1px solid #010408;
+  padding: 0.75rem;
+  text-align: center;
+}
+
+.evaluation-table td {
+  border: 1px solid #000000;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.evaluation-table tr td:first-child {
+  text-align: left;
+  border: 1px solid #010408;
+  font-weight: 500;
+}
+
+.evaluation-table td.score-cell select {
+  width: 50px;
+  padding: 0.25rem;
+  text-align: center;
+  border: 1px solid #040608;
+  border-radius: 4px;
+}
+
+.score-comment {
+  display: none;
+  padding: 1rem;
+  background-color: #F7FAFC;
+  border-radius: 5px;
+  margin-top: 0.5rem;
+  border-left: 3px solid #6B46C1;
+  font-size: 0.9rem;
+}
+
+.score-comment.active {
+  display: block;
+}
+
+.score-5-cell {
+  background-color: #7ae9a0;
+}
+
+.score-4-cell {
+  background-color: #c2f7d3;
+}
+
+.score-3-cell {
+  background-color: #f0eeb1;
+}
+
+.score-2-cell,
+.score-1-cell {
+  background-color: #eca2a2;
+}
+
+.comment-box {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #a7abaf;
+  border-radius: 5px;
+  resize: vertical;
+  min-height: 100px;
+  font-family: 'Inter', sans-serif;
+}
+
+.progress-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid #E2E8F0;
+  padding-bottom: 1rem;
+}
+
+.progress-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.step-number {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #E2E8F0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.progress-step.active .step-number {
+  background-color: #6B46C1;
+  color: white;
+}
+
+.progress-step.completed .step-number {
+  background-color: #38A169;
+  color: white;
+}
+
+.step-label {
+  font-size: 0.8rem;
+  color: #718096;
+  font-weight: 500;
+}
+
+.progress-step.active .step-label {
+  color: #2D3748;
+}
+
+/*end of evaluation page*/
+
+/*settings page style sheet*/
+/* Ensure main content respects sidebar width */
+.dashboard-container {
+  display: flex;
+}
+
+/* Sidebar is fixed, so offset the main content */
+.main-content {
+  margin-left: 250px;
+  /* Adjust if your sidebar is wider/narrower */
+  padding: 2rem;
+  max-width: fit-content(20% 70);
+  /* Prevent overflow */
+  box-sizing: border-box;
+}
+
+/* Forms shouldn't center unless explicitly told to */
+form {
+  width: 100%;
+  max-width: 600px;
+  align-content: center;
+  align-items: center;
+}
+
+/* Form section styling */
+.s-card {
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+}
+
+/* Space between groups inside forms */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+/* Save button */
+.S-btn {
+  background-color: #6d3fcf;
+  color: white;
+  padding: 0.6rem 1.4rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.S-btn:hover {
+  background-color: #5a32b0;
+}
+
+/*end of settings style sheet*/
+
+/*Report page style sheet*/
+.custom-reports-section {
+  margin-top: 40px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.section-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.create-report-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.reports-table-container {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.reports-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.reports-table th,
+.reports-table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.reports-table th {
+  background-color: #f9fafb;
+  font-weight: 500;
+  color: #4b5563;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #6366f1;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+
+.action-btn:hover {
+  background-color: rgba(99, 102, 241, 0.1);
+}
+
+.action-btn.delete {
+  color: #ef4444;
+}
+
+.action-btn.delete:hover {
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Toast Notification */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(150%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1000;
+  max-width: 350px;
+}
+
+.toast.show {
+  transform: translateY(0);
+}
+
+.toast-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.toast-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.toast-message {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+/* Empty state */
+.empty-state {
+  padding: 24px;
+  text-align: center;
+  color: #6b7280;
+}
+
+/*end of report page style sheet*/
+
+/*students page style sheet*/
+/* Students Management */
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+
+.filter-options {
+  display: flex;
+  gap: 20px;
+}
+
+.add-student-btn {
+  background-color: #6d3fcf;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  height: fit-content;
+}
+
+.students-table {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.students-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.students-table th {
+  background-color: #f8fafc;
+  color: #4a5568;
+  font-weight: 600;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.students-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/*end of students page style sheet*/
+
+/* Groups Management style*/
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 20px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.filter-group label {
+  color: #4a5568;
+  font-weight: 500;
+}
+
+.filter-group select {
+  padding: 8px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 5px;
+  width: 300px;
+}
+
+.add-group-btn {
+  background-color: #6d3fcf;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.groups-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.groups-table th {
+  background-color: #f8fafc;
+  color: #4a5568;
+  font-weight: 600;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.groups-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/*end of group page style*/
+
+/*Mentors page style sheet*/
+.m-card {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: transparent;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+}
+
+/* Ensure the table doesn't look too small */
+.m-card .evaluation-table {
+  width: 90%;
+  max-width: 1000px;
+  min-width: 600px;
+  font-size: 1rem;
+}
+
+/* Optional: add space below the button */
+.form-controls {
+  margin-bottom: 1.5rem;
+}
+
+.view-link {
+  color: #000000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.view-link:hover {
+  text-decoration: underline;
+}
+
+/*End of mentors page style*/
+
+/*Student Dashboard Page Style Sheet*/
+/* Center the st-card */
+.performance-cards {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
+.st-card {
+  text-align: center;
+  padding: 2rem;
+  background-color: #f9fafb;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  width: 100%;
+  max-width: 500px;
+}
+
+.st-card h2 {
+  font-size: 1.5rem;
+  color: #2d3748;
+}
+
+.st-card .subtitle {
+  color: #718096;
+  margin-bottom: 1rem;
+}
+
+.st-card .score {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #6B46C1;
+  margin-bottom: 0.5rem;
+}
+
+/* Evaluation Table */
+.latest-evaluation {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.evaluation-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.evaluation-table th,
+.evaluation-table td {
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  text-align: left;
+  vertical-align: top;
+}
+
+.evaluation-table th {
+  background-color: #f1f5f9;
+  color: #2d3748;
+}
+
+.score-cell {
+  font-weight: bold;
+}
+
+.overall-score {
+  color: #6B46C1;
+  font-weight: bold;
+}
+
+/* Comment Sections */
+.mentor-comment-box,
+.group-comment-section,
+.query-section {
+  background-color: #f7fafc;
+  border-left: 4px solid #6B46C1;
+  padding: 1.25rem;
+  border-radius: 8px;
+  margin-top: 2rem;
+}
+
+.mentor-comment-box h3,
+.group-comment-section h3,
+.query-section h3 {
+  margin-bottom: 0.75rem;
+  color: #2d3748;
+}
+
+.mentor-comment-box p,
+.group-comment-section p {
+  color: #4a5568;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Query Form */
+.query-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.query-section textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #CBD5E0;
+  resize: vertical;
+  font-size: 0.95rem;
+  color: #2d3748;
+}
+
+.query-section button {
+  align-self: flex-start;
+  background-color: #6B46C1;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.query-section button:hover {
+  background-color: #553C9A;
+}
+
+/*End of the Student Page*/
+
+/* START: Student Evaluations Page Styles - New Code Added */
+.student-evaluations-container {
+  margin-top: 1rem;
+}
+
+.student-evaluations-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.evaluations-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.evaluations-table th {
+  background-color: #8561d8;
+  color: white;
+  font-weight: 600;
+  padding: 12px;
+  text-align: center;
+  border-bottom: 2px solid #6d3fcf;
+}
+
+.evaluations-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: center;
+}
+
+.evaluations-table tr:hover {
+  background-color: #f8fafc;
+}
+
+.work-integrity {
+  text-align: center !important;
+}
+
+.eval-date {
+  text-align: center !important;
+}
+
+.view-action,
+.download-action {
+  text-align: center !important;
+}
+
+.view-btn,
+.download-btn {
+  background-color: #6d3fcf;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.view-btn:hover,
+.download-btn:hover {
+  background-color: #553c9a;
+  text-decoration: none;
+  color: white;
+}
+
+.download-btn {
+  background-color: #059669;
+}
+
+.download-btn:hover {
+  background-color: #047857;
+}
+
+.student-evaluations-table th {
+  background-color: #8561d8;
+  color: white;
+  font-weight: 600;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 2px solid #6d3fcf;
+}
+
+.student-evaluations-table td {
+  padding: 12px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.student-evaluations-table tr:hover {
+  background-color: #f8fafc;
+}
+
+.work-integrity-score {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #6d3fcf;
+}
+
+/* Evaluation Modal Styles */
+.evaluation-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.evaluation-modal-content {
+  background-color: white;
+  margin: 5% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 800px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 15px;
+}
+
+.modal-header h3 {
+  margin: 0;
+  color: #2d3748;
+}
+
+.close-modal {
+  font-size: 28px;
+  font-weight: bold;
+  color: #a0aec0;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close-modal:hover {
+  color: #2d3748;
+}
+
+.evaluation-details {
+  line-height: 1.6;
+}
+
+.evaluation-details .eval-date {
+  font-weight: bold;
+  color: #6d3fcf;
+  margin-bottom: 15px;
+}
+
+.evaluation-details .evaluation-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.evaluation-details .evaluation-table th,
+.evaluation-details .evaluation-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.evaluation-details .evaluation-table th {
+  background-color: #f7fafc;
+  font-weight: 600;
+}
+
+/* END: Student Evaluations Page Styles - New Code Added */
+
+/*Start of Notification page style*/
+/* Controls Section */
+.controls-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Search Bar */
+.search-container {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  flex-grow: 1;
+  max-width: 300px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-container i {
+  color: #6a1b9a;
+  margin-right: 0.5rem;
+}
+
+.search-container input {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  width: 100%;
+}
+
+/* Filter Buttons */
+.filter-buttons {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 999px;
+  background: white;
+  color: #6a1b9a;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.filter-btn:hover {
+  background: #f3e5f5;
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: #6a1b9a;
+  color: white;
+}
+
+/* Action Buttons */
+.view-options {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 999px;
+  background: white;
+  color: #6a1b9a;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.action-btn:hover {
+  background: #f3e5f5;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .controls-section {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-buttons,
+  .view-options {
+    justify-content: center;
+  }
+
+  .search-container {
+    max-width: 100%;
+  }
+}
+
+/*end of the notfication page*/
+
+/* STUDENT PROFILE PAGE STYLES - START      */
+.profile-section {
+  margin-top: 1rem;
+}
+
+.profile-form-container {
+  background-color: white;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.profile-form .form-group {
+  margin-bottom: 1.5rem;
+}
+
+.profile-form .form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #4a5568;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.profile-form .form-control {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.profile-form .form-control:focus {
+  outline: none;
+  border-color: #6d3fcf;
+  box-shadow: 0 0 0 3px rgba(109, 63, 207, 0.1);
+}
+
+.profile-form select.form-control {
+  background-color: white;
+  cursor: pointer;
+}
+
+.form-actions {
+  margin-top: 2rem;
+
+}
+
+.btn-primary {
+  background-color: #6d3fcf;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #553c9a;
+}
+
+.profile-form input[type="password"] {
+  font-family: 'Inter', sans-serif;
+}
+
+/* STUDENT PROFILE PAGE STYLES - END        */
+/* ===== COHORT ACTIONS DROPDOWN STYLES - START ===== */
+/* Updated for cohort management actions dropdown */
+.action-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Main action button styling */
+.action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  color: #6d3fcf;
+  transition: background-color 0.2s;
+}
+
+.action-btn:hover {
+  background-color: #f8fafc;
+}
+
+/* Updated action button for cohort table */
+.action-button {
+  background: #6d3fcf;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.action-button:hover {
+  background-color: #553c9a;
+  transform: translateY(-1px);
+}
+
+/* Dropdown menu container */
+.action-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  background-color: white;
+  min-width: 180px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  z-index: 1000;
+  border: 1px solid #e2e8f0;
+  overflow: hidden;
+}
+
+/* Show dropdown when active */
+.action-menu.show {
+  display: block;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Individual menu items */
+.action-menu a {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  text-decoration: none;
+  color: #4a5568;
+  transition: all 0.2s;
+  font-size: 14px;
+  font-weight: 500;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.action-menu a:last-child {
+  border-bottom: none;
+}
+
+.action-menu a:hover {
+  background-color: #f8fafc;
+  color: #2d3748;
+}
+
+.action-menu a i {
+  margin-right: 10px;
+  width: 16px;
+  font-size: 14px;
+}
+
+/* View action styling */
+.action-menu a.view-action {
+  color: #3182ce;
+}
+
+.action-menu a.view-action:hover {
+  background-color: #ebf8ff;
+  color: #2c5282;
+}
+
+/* Edit action styling */
+.action-menu a.edit-action {
+  color: #38a169;
+}
+
+.action-menu a.edit-action:hover {
+  background-color: #f0fff4;
+  color: #2f855a;
+}
+
+/* Remove/Delete action styling */
+.action-menu a.delete-action {
+  color: #e53e3e;
+}
+
+.action-menu a.delete-action:hover {
+  background-color: #fed7d7;
+  color: #c53030;
+}
+
+/* Submit action styling - for cohort completion/submission */
+.action-menu a.submit-action {
+  color: #805ad5;
+}
+
+.action-menu a.submit-action:hover {
+  background-color: #faf5ff;
+  color: #6b46c1;
+}
+
+/* Cohort details modal styles */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 15px;
+}
+
+.close-modal {
+  font-size: 28px;
+  font-weight: bold;
+  color: #a0aec0;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close-modal:hover {
+  color: #2d3748;
+}
+
+.cohort-detail-item {
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: #f8fafc;
+  border-radius: 4px;
+  border-left: 4px solid #6d3fcf;
+}
+
+.cohort-detail-item strong {
+  color: #2d3748;
+  margin-right: 10px;
+}
+/* ===== COHORT ACTIONS DROPDOWN STYLES - END ===== */

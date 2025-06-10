@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - TTSS</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.42.4/dist/umd/supabase.min.js"></script>
+</head>
+<body>
+  <div class="background">
+    <header>
+      <div class="logo-container">
+        <img src="logo.png" alt="CAPACITI Logo" class="logo-img" />
+      </div>
+    </header>
+
+    <div class="signup-wrapper">
+      <div class="signup-page">
+        <form id="signupForm">
+          <div><h1>Sign Up</h1></div>
+
+          <!-- Added name attributes to form inputs -->
+          <input type="text" name="name" placeholder="Name" required />
+          <input type="text" name="surname" placeholder="Surname" required />
+          <input type="text" name="cohort" placeholder="Cohort" required />
+          <input type="email" name="email" placeholder="Email" required />
+           <select id="role" name="role" required>
+            <option value="">-- Select Role --</option>
+            <option value="mentor">Mentor</option>
+            <option value="admin">Admin</option>
+            <option value="candidate">Candidate</option>
+            </select>
+         <input type="password" name="password" placeholder="Set Password" required />
+          <input type="password" name="confirmPassword" placeholder="Confirm Password" required />
+
+          <button type="submit" class="login-btn">Create Account</button>
+
+          <div><p class="back-login">Already have an account? <a href="login.html">Login</a></p></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const supabase = window.supabase.createClient(
+      'https://ibsblvulrszpjrhreokf.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imlic2JsdnVscnN6cGpyaHJlb2tmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzE2NTksImV4cCI6MjA2MzMwNzY1OX0.V5sYChoQyKcCWK_T7r4fqVTVeL0zvun2rg67gCCx5EI'
+    );
+  
+    document.getElementById('signupForm').addEventListener('submit', async (event) => {
+      event.preventDefault();
+  
+      const form = event.target;
+      const name = form.name.value.trim();
+      const surname = form.surname.value.trim();
+      const cohort = form.cohort.value.trim();
+      const email = form.email.value.trim();
+      const password = form.password.value;
+      const confirmPassword = form.confirmPassword.value;
+  
+      if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+      }
+  
+      try {
+        // 1. Sign the user up using Supabase Auth
+        const { data: signUpData, error: signUpError } = await supabase.auth.signUp({
+          email,
+          password
+        });
+  
+        if (signUpError) throw signUpError;
+  
+        const userId = signUpData?.user?.id;
+        if (!userId) throw new Error("User ID not returned by Supabase.");
+  
+        // 2. Add the user’s full data to your custom table
+        const { error: insertError } = await supabase
+          .from('users')
+          .insert([{
+            user_id: userId,
+            name,
+            surname,
+            cohort,
+            email
+          }]);
+  
+        if (insertError) throw insertError;
+  
+        alert("Account created successfully! Please check your email to confirm.");
+        window.location.href = "login.html";
+  
+      } catch (error) {
+        console.error("Signup failed:", error);
+        alert("Signup failed: " + error.message);
+      }
+    });
+  </script>
+  
+</body>
+</html>

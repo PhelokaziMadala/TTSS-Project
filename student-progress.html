@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress Report - Tech Talent Scorecard System</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="dashboard-container">
+       <aside class="sidebar">
+        <div class="logo-container" style="display: flex; align-items: center; gap: 0.5rem;">
+            <img src="logo.png" alt="CAPACITI Logo" class="logo-img" style="width: 180px;" />
+            <a href="homePage.html" class="home" style="font-size: 30px; color: #070707; text-decoration: none;">&#8962;</a>
+        </div>
+        <div class="sidebar-logo">
+           <div class="logo-text">TTSS</div>
+        </div>
+
+      <ul class="nav-menu">
+        <li>
+          <a href="student-dashboardpage.html" class="active">
+            <i class="fas fa-chart-line"></i> Dashboard
+          </a>
+        </li>
+        <li>
+          <a href="student-evaluationPage.html">
+            <i class="fas fa-clipboard-check"></i> My Evaluations
+          </a>
+        </li>
+        <li>
+          <a href="student-progress.html">
+            <i class="fas fa-chart-bar"></i> Progress Report
+          </a>
+        </li>
+        <li>
+          <a href="student-notification.html">
+            <i class="fas fa-bell"></i> Notifications
+          </a>
+        </li>
+        <li>
+          <a href="student-profile.html">
+            <i class="fas fa-user"></i> My Profile
+          </a>
+        </li>
+        <li>
+          <a href="login.html">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="dashboard-header">
+        <h1>Progress Report</h1>
+        <div class="user-profile">
+          <div class="user-avatar">P</div>
+          <div class="user-info">
+            <div class="user-name">Phelokazi Madala</div>
+            <div class="user-role">Candidate - Tech Devs</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Skills Breakdown</h2>
+            <p class="card-subtitle">Individual skill assessment</p>
+          </div>
+          <div style="padding: 1rem;">
+            <div class="skill-item" style="margin-bottom: 1rem;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span>Attendance</span>
+                <span style="font-weight: 600;">95%</span>
+              </div>
+              <div style="background-color: #E2E8F0; height: 8px; border-radius: 4px;">
+                <div style="background-color: #38A169; height: 100%; width: 95%; border-radius: 4px;"></div>
+              </div>
+            </div>
+
+            <div class="skill-item" style="margin-bottom: 1rem;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span>Technical Skills</span>
+                <span style="font-weight: 600;">84%</span>
+              </div>
+              <div style="background-color: #E2E8F0; height: 8px; border-radius: 4px;">
+                <div style="background-color: #3182CE; height: 100%; width: 84%; border-radius: 4px;"></div>
+              </div>
+            </div>
+
+            <div class="skill-item" style="margin-bottom: 1rem;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span>Project Delivery</span>
+                <span style="font-weight: 600;">76%</span>
+              </div>
+              <div style="background-color: #E2E8F0; height: 8px; border-radius: 4px;">
+                <div style="background-color: #ECC94B; height: 100%; width: 76%; border-radius: 4px;"></div>
+              </div>
+            </div>
+
+            <div class="skill-item" style="margin-bottom: 1rem;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span>Communication</span>
+                <span style="font-weight: 600;">68%</span>
+              </div>
+              <div style="background-color: #E2E8F0; height: 8px; border-radius: 4px;">
+                <div style="background-color: #ED8936; height: 100%; width: 68%; border-radius: 4px;"></div>
+              </div>
+            </div>
+
+            <div class="skill-item">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <span>Accountability</span>
+                <span style="font-weight: 600;">88%</span>
+              </div>
+              <div style="background-color: #E2E8F0; height: 8px; border-radius: 4px;">
+                <div style="background-color: #38A169; height: 100%; width: 88%; border-radius: 4px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Monthly Progress</h2>
+            <p class="card-subtitle">Performance over time</p>
+          </div>
+          <div style="padding: 1rem;">
+            <div class="month-item"
+              style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; padding: 0.75rem; background-color: #F7FAFC; border-radius: 5px;">
+              <div>
+                <div style="font-weight: 600;">May 2025</div>
+                <div style="font-size: 0.9rem; color: #718096;">3 evaluations</div>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-weight: 600; color: #38A169;">80%</div>
+                <div style="font-size: 0.8rem; color: #38A169;">↗ +4%</div>
+              </div>
+            </div>
+
+            <div class="month-item"
+              style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; padding: 0.75rem; background-color: #F7FAFC; border-radius: 5px;">
+              <div>
+                <div style="font-weight: 600;">April 2025</div>
+                <div style="font-size: 0.9rem; color: #718096;">4 evaluations</div>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-weight: 600; color: #ECC94B;">76%</div>
+                <div style="font-size: 0.8rem; color: #ECC94B;">→ 0%</div>
+              </div>
+            </div>
+
+            <div class="month-item"
+              style="display: flex; justify-content: space-between; align-items: center; padding: 0.75rem; background-color: #F7FAFC; border-radius: 5px;">
+              <div>
+                <div style="font-weight: 600;">March 2025</div>
+                <div style="font-size: 0.9rem; color: #718096;">4 evaluations</div>
+              </div>
+              <div style="text-align: right;">
+                <div style="font-weight: 600; color: #3182CE;">76%</div>
+                <div style="font-size: 0.8rem; color: #38A169;">↗ +8%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+ <div class="card" style="margin-top: 1.5rem;">
+        <div class="card-header">
+          <h2 class="card-title">Learning Goals & Milestones</h2>
+          <p class="card-subtitle">Track your development objectives</p>
+        </div>
+
+        <div style="padding: 1rem;">
+          <div class="goal-item"
+            style="margin-bottom: 1.5rem; padding: 1rem; border: 1px solid #E2E8F0; border-radius: 5px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <h3 style="margin: 0; color: #1A365D;">Improve Communication Skills</h3>
+              <span
+                style="background-color: #ECC94B; color: white; padding: 0.25rem 0.5rem; border-radius: 3px; font-size: 0.8rem;">In
+                Progress</span>
+            </div>
+            <p style="margin: 0.5rem 0; color: #718096;">Focus on clearer articulation during technical discussions and
+              presentations.</p>
+            <div style="background-color: #E2E8F0; height: 6px; border-radius: 3px; margin-top: 0.5rem;">
+              <div style="background-color: #ECC94B; height: 100%; width: 60%; border-radius: 3px;"></div>
+            </div>
+            <div style="font-size: 0.8rem; color: #718096; margin-top: 0.25rem;">60% Complete</div>
+          </div>
+
+          <div class="goal-item"
+            style="margin-bottom: 1.5rem; padding: 1rem; border: 1px solid #E2E8F0; border-radius: 5px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <h3 style="margin: 0; color: #1A365D;">Master React Framework</h3>
+              <span
+                style="background-color: #38A169; color: white; padding: 0.25rem 0.5rem; border-radius: 3px; font-size: 0.8rem;">Completed</span>
+            </div>
+            <p style="margin: 0.5rem 0; color: #718096;">Build proficiency in React components, state management, and
+              hooks.</p>
+            <div style="background-color: #E2E8F0; height: 6px; border-radius: 3px; margin-top: 0.5rem;">
+              <div style="background-color: #38A169; height: 100%; width: 100%; border-radius: 3px;"></div>
+            </div>
+            <div style="font-size: 0.8rem; color: #718096; margin-top: 0.25rem;">100% Complete</div>
+          </div>
+
+          <div class="goal-item" style="padding: 1rem; border: 1px solid #E2E8F0; border-radius: 5px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+              <h3 style="margin: 0; color: #1A365D;">Database Design & SQL</h3>
+              <span
+                style="background-color: #3182CE; color: white; padding: 0.25rem 0.5rem; border-radius: 3px; font-size: 0.8rem;">Not
+                Started</span>
+            </div>
+            <p style="margin: 0.5rem 0; color: #718096;">Learn database design principles and advanced SQL queries.</p>
+            <div style="background-color: #E2E8F0; height: 6px; border-radius: 3px; margin-top: 0.5rem;">
+              <div style="background-color: #3182CE; height: 100%; width: 0%; border-radius: 3px;"></div>
+            </div>
+            <div style="font-size: 0.8rem; color: #718096; margin-top: 0.25rem;">0% Complete</div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+     
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

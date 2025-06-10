@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login - TTSS</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.42.4/dist/umd/supabase.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <div class="background">
+    <header>
+      <div class="logo-container">
+        <img src="logo.png" alt="CAPACITI Logo" class="logo-img" />
+      </div>
+      <a href="index.html" class="back-arrow">&#8617;</a> 
+    </header>
+
+    <div class="login-wrapper">
+      <div class="login-page">
+        <div class="login-left">
+          <img src="logo.png" alt="Logo" class="logo-img" />
+          <div class="sub-logo">TTSS</div>
+          <h2>Login to Your Account</h2>
+          <p>Enter your credentials to continue</p>
+          <form id="loginForm">
+            <input type="text" placeholder="wisani.m@capaciti.org.za" required />
+            <input type="password" placeholder="Password" required />
+            <select>
+              <option value="admin">Admin</option>
+              <option value="mentor">Mentor</option>
+              <option value="candidate">Candidate</option>
+            </select>
+            <button type="submit" class="login-btn">Login</button>
+          </form>
+          <a href="#" class="forgot-link">Forgot Password?</a>
+          <p class="signup-link">Don't have an account? <a href="signup.html">Sign Up</a></p>
+        </div>
+
+        <div class="login-right">
+          <h1>Tech Talent Scorecard System</h1>
+          <ul>
+            <li>✔ Score technical and soft skills with ease</li>
+            <li>✔ Generate personalized feedback automatically</li>
+            <li>✔ Track performance trends over time</li>
+            <li>✔ Export comprehensive reports</li>
+            <li>✔ Support team development with data-driven insights</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Supabase and login logic -->
+  <script>
+    const supabase = window.supabase.createClient(
+      'https://ibsblvulrszpjrhreokf.supabase.co',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imlic2JsdnVscnN6cGpyaHJlb2tmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzE2NTksImV4cCI6MjA2MzMwNzY1OX0.V5sYChoQyKcCWK_T7r4fqVTVeL0zvun2rg67gCCx5EI'
+    );
+
+    document.getElementById('loginForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const email = document.querySelector('input[type="text"]').value.trim();
+      const password = document.querySelector('input[type="password"]').value;
+      const role = document.querySelector('select').value;
+
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (error) {
+        alert("Login failed: " + error.message);
+        return;
+      }
+
+      localStorage.setItem("userRole", role);
+      alert("Login successful!");
+
+      // Redirect based on role
+      if (role === "admin") {
+        window.location.href = "admin-dashboardPage.html";
+      } else if (role === "candidate") {
+        window.location.href = "student-dashboardpage.html";
+     
+      } else {
+        window.location.href = "admin-dashboardPage.html";
+      }
+    });
+  </script>
+</body>
+</html>

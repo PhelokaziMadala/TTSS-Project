@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard - Tech Talent Scorecard System</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="dashboard-container">
+    <aside class="sidebar">
+        <div class="logo-container" style="display: flex; align-items: center; gap: 0.5rem;">
+            <img src="logo.png" alt="CAPACITI Logo" class="logo-img" style="width: 180px;" />
+            <a href="homePage.html" class="home" style="font-size: 30px; color: #070707; text-decoration: none;">&#8962;</a>
+        </div>
+        <div class="sidebar-logo">
+           <div class="logo-text">TTSS</div>
+        </div>
+
+      <ul class="nav-menu">
+        <li>
+          <a href="student-dashboardpage.html" class="active">
+            <i class="fas fa-chart-line"></i> Dashboard
+          </a>
+        </li>
+        <li>
+          <a href="student-evaluationPage.html">
+            <i class="fas fa-clipboard-check"></i> My Evaluations
+          </a>
+        </li>
+        <li>
+          <a href="student-progress.html">
+            <i class="fas fa-chart-bar"></i> Progress Report
+          </a>
+        </li>
+        <li>
+          <a href="student-notification.html">
+            <i class="fas fa-bell"></i> Notifications
+          </a>
+        </li>
+        <li>
+          <a href="student-profile.html">
+            <i class="fas fa-user"></i> My Profile
+          </a>
+        </li>
+        <li>
+          <a href="login.html">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <header class="dashboard-header">
+        <h1>Candidate Dashboard</h1>
+        <div class="user-profile">
+          <div class="user-avatar">P</div>
+          <div class="user-info">
+            <div class="user-name">Phelokazi Madala</div>
+            <div class="user-role">Candidate - Tech Devs</div>
+          </div>
+        </div>
+      </header>
+
+      <section class="performance-cards">
+        <div class="st-card">
+          <h2>Overall Performance</h2>
+          <p class="subtitle">Current standing</p>
+          <p class="score">80%</p>
+          <p>Good performance</p>
+        </div>
+      </section>
+
+      <section class="latest-evaluation">
+        <h2>Latest Evaluation</h2>
+        <p class="eval-date">May 12, 2025</p>
+        <table class="evaluation-table">
+          <thead>
+            <tr><th>Criteria</th><th>Score</th><th>Comments</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Attendance</td><td class="score-cell score-5">5</td><td>Excellent attendance record, always punctual and prepared.</td></tr>
+            <tr><td>Communication</td><td class="score-cell score-3">3</td><td>Communicates effectively but could improve clarity in technical discussions.</td></tr>
+            <tr><td>Accountability</td><td class="score-cell score-4">4</td><td>Consistently meets deadlines and takes responsibility for tasks.</td></tr>
+            <tr><td>Creativity & Ownership</td><td class="score-cell score-5">5</td><td>Shows excellent initiative and creative problem-solving skills.</td></tr>
+            <tr><td>Project Delivery</td><td class="score-cell score-3">3</td><td>Delivers quality work but sometimes struggles with complex requirements.</td></tr>
+            <tr><td>Tech Skills</td><td class="score-cell score-4">4</td><td>Strong technical foundation with good understanding of core concepts.</td></tr>
+            <tr><td><strong>Overall Score</strong></td><td class="overall-score">80%</td><td><strong>Good overall performance with strong technical skills.</strong></td></tr>
+          </tbody>
+        </table>
+        <div class="mentor-comment-box">
+          <h3>Mentor's Summary</h3>
+          <p>Phelokazi continues to show strong technical aptitude and dedication to her work. Her attendance and ownership of projects are exemplary. Areas for improvement include communication during technical discussions and handling complex project requirements. With continued focus on these areas, she is on track to excel in her role.</p>
+        </div>
+        
+        <!-- Group Comment -->
+        <div class="group-comment-section">
+            <h3>Group Overall Comment</h3>
+            <p>The group overall has shown good commitment, with notable improvements in project ownership and communication dynamics.</p>
+        </div>
+
+        <!-- Query Section -->
+        <div class="query-section">
+            <h3>Submit a Query About This Scorecard</h3>
+            <form onsubmit="submitQuery(event)">
+            <textarea placeholder="Write your query here..." required></textarea>
+            <button type="submit">Send Query</button>
+            </form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Add this at the bottom before </body> -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.42.4/dist/umd/supabase.min.js"></script>
+<script>
+  const supabase = window.supabase.createClient(
+    'https://ibsblvulrszpjrhreokf.supabase.co',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imlic2JsdnVscnN6cGpyaHJlb2tmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzE2NTksImV4cCI6MjA2MzMwNzY1OX0.V5sYChoQyKcCWK_T7r4fqVTVeL0zvun2rg67gCCx5EI'
+  );
+
+  document.addEventListener("DOMContentLoaded", async () => {
+    const { data: { user }, error: sessionError } = await supabase.auth.getUser();
+
+    if (sessionError || !user) {
+      alert("You are not logged in. Redirecting to login...");
+      window.location.href = "login.html";
+      return;
+    }
+
+    const { data: profile, error: profileError } = await supabase
+      .from("profiles")
+      .select("full_name, role")
+      .eq("id", user.id)
+      .single();
+
+    if (profileError) {
+      console.error("Profile fetch error:", profileError.message);
+      return;
+    }
+
+    // Update dashboard UI
+    document.querySelector(".user-name").textContent = profile.full_name || "User";
+    document.querySelector(".user-role").textContent = `${profile.role} - Tech Devs`;
+
+    // Optionally set initials in avatar
+    const initial = (profile.full_name || "U").charAt(0).toUpperCase();
+    document.querySelector(".user-avatar").textContent = initial;
+  });
+</script>
+
+</body>
+
+</html>

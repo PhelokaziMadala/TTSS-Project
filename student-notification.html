@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Notifications - CAPACITI</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+     <aside class="sidebar">
+        <div class="logo-container" style="display: flex; align-items: center; gap: 0.5rem;">
+            <img src="logo.png" alt="CAPACITI Logo" class="logo-img" style="width: 180px;" />
+            <a href="homePage.html" class="home" style="font-size: 30px; color: #070707; text-decoration: none;">&#8962;</a>
+        </div>
+        <div class="sidebar-logo">
+           <div class="logo-text">TTSS</div>
+        </div>
+
+      <ul class="nav-menu">
+        <li>
+          <a href="student-dashboardpage.html" class="active">
+            <i class="fas fa-chart-line"></i> Dashboard
+          </a>
+        </li>
+        <li>
+          <a href="student-evaluationPage.html">
+            <i class="fas fa-clipboard-check"></i> My Evaluations
+          </a>
+        </li>
+        <li>
+          <a href="student-progress.html">
+            <i class="fas fa-chart-bar"></i> Progress Report
+          </a>
+        </li>
+        <li>
+          <a href="student-notification.html">
+            <i class="fas fa-bell"></i> Notifications
+          </a>
+        </li>
+        <li>
+          <a href="student-profile.html">
+            <i class="fas fa-user"></i> My Profile
+          </a>
+        </li>
+        <li>
+          <a href="login.html">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </a>
+        </li>
+      </ul>
+    </aside>
+     
+        <!-- Main Content -->
+        <main class="main-content">
+          <header class="dashboard-header">
+            <h1>Student Notifications</h1>
+            <div class="user-profile">
+            <div class="user-avatar">P</div>
+            <div class="user-info">
+            <div class="user-name">Phelokazi Madala</div>
+            <div class="user-role">Candidate - Tech Devs</div>
+            </div>
+          </div>
+      </header>
+            <!-- Filters and Search -->
+            <div class="controls-section">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" placeholder="Search notifications...">
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="fas fa-list"></i>
+                        All
+                    </button>
+                    <button class="filter-btn" data-filter="tasks">
+                        <i class="fas fa-tasks"></i>
+                        Tasks
+                    </button>
+                    <button class="filter-btn" data-filter="updates">
+                        <i class="fas fa-info-circle"></i>
+                        Updates
+                    </button>
+                    <button class="filter-btn" data-filter="announcements">
+                        <i class="fas fa-bullhorn"></i>
+                        Announcements
+                    </button>
+                </div>
+                <div class="view-options">
+                    <button class="action-btn" id="markAllRead">
+                        <i class="fas fa-check-double"></i>
+                        Mark All Read
+                    </button>
+                    <button class="action-btn" id="refreshBtn">
+                        <i class="fas fa-sync-alt"></i>
+                        Refresh
+                    </button>
+                </div>
+            </div>
+ 
+            <!-- Notifications Container -->
+            <div class="notifications-container" id="notificationsContainer">
+                <!-- Notifications will be dynamically loaded here -->
+            </div>
+ 
+            <!-- Empty State -->
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <div class="empty-icon">
+                    <i class="fas fa-bell-slash"></i>
+                </div>
+                <h3>No notifications found</h3>
+                <p>You're all caught up! Check back later for new updates and tasks.</p>
+            </div>
+ 
+            <!-- Loading State -->
+            <div class="loading-state" id="loadingState">
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                </div>
+                <p>Loading notifications...</p>
+            </div>
+             <!-- Notification Detail Modal -->
+        <div class="modal-overlay" id="modalOverlay">
+            <div class="modal-content" id="modalContent">
+                <div class="modal-header">
+                    <h3 id="modalTitle"></h3>
+                    <button class="modal-close" id="modalClose">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <!-- Detail content will be inserted here -->
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" id="modalActionBtn">
+                        <i class="fas fa-check"></i>
+                        Mark as Read
+                    </button>
+                </div>
+            </div>
+        </div>
+        </main>
+ 
+
+    </div>
+ 
+    <script src="script.js"></script>
+</body>
+</html>

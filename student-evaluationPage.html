@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Evaluations - Tech Talent Scorecard System</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+ 
+<body>
+  <div class="dashb oard-container">
+   <aside class="sidebar">
+        <div class="logo-container" style="display: flex; align-items: center; gap: 0.5rem;">
+            <img src="logo.png" alt="CAPACITI Logo" class="logo-img" style="width: 180px;" />
+            <a href="homePage.html" class="home" style="font-size: 30px; color: #070707; text-decoration: none;">&#8962;</a>
+        </div>
+        <div class="sidebar-logo">
+           <div class="logo-text">TTSS</div>
+        </div>
+
+      <ul class="nav-menu">
+        <li>
+          <a href="student-dashboardpage.html" class="active">
+            <i class="fas fa-chart-line"></i> Dashboard
+          </a>
+        </li>
+        <li>
+          <a href="student-evaluationPage.html">
+            <i class="fas fa-clipboard-check"></i> My Evaluations
+          </a>
+        </li>
+        <li>
+          <a href="student-progress.html">
+            <i class="fas fa-chart-bar"></i> Progress Report
+          </a>
+        </li>
+        <li>
+          <a href="student-notification.html">
+            <i class="fas fa-bell"></i> Notifications
+          </a>
+        </li>
+        <li>
+          <a href="student-profile.html">
+            <i class="fas fa-user"></i> My Profile
+          </a>
+        </li>
+        <li>
+          <a href="login.html">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+ 
+    <main class="main-content">
+      <header class="dashboard-header">
+        <h1>My Evaluations</h1>
+        <div class="user-profile">
+          <div class="user-avatar">P</div>
+          <div class="user-info">
+            <div class="user-name">Phelokazi Madala</div>
+            <div class="user-role">Candidate - Tech Devs</div>
+          </div>
+        </div>
+      </header>
+ 
+      <section class="evaluations-section">
+        <div class="evaluations-header">
+          <h2>Evaluation History</h2>
+          <p class="subtitle">Track your performance over time</p>
+        </div>
+ 
+        <div class="evaluations-table-container">
+          <table class="evaluations-table">
+            <thead>
+              <tr>
+                <th>Overall Score</th>
+                <th>Date</th>
+                <th>View</th>
+                <th>Get Evaluation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="">
+                  <span class="percentage-badge good">80%</span>
+                </td>
+                <td class="eval-date">May 12, 2025</td>
+                <td class="view-action">
+                  <a href="#" class="view-btn" onclick="viewEvaluation('eval-1')">
+                    <i class="fas fa-eye"></i> View
+                  </a>
+                </td>
+                <td class="download-action">
+                  <a href="#" class="download-btn" onclick="downloadEvaluation('eval-1')">
+                    <i class="fas fa-download"></i> Download
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="work-integrity">
+                  <span class="percentage-badge excellent">85%</span>
+                </td>
+                <td class="eval-date">April 28, 2025</td>
+                <td class="view-action">
+                  <a href="#" class="view-btn" onclick="viewEvaluation('eval-2')">
+                    <i class="fas fa-eye"></i> View
+                  </a>
+                </td>
+                <td class="download-action">
+                  <a href="#" class="download-btn" onclick="downloadEvaluation('eval-2')">
+                    <i class="fas fa-download"></i> Download
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="work-integrity">
+                  <span class="percentage-badge average">75%</span>
+                </td>
+                <td class="eval-date">April 14, 2025</td>
+                <td class="view-action">
+                  <a href="#" class="view-btn" onclick="viewEvaluation('eval-3')">
+                    <i class="fas fa-eye"></i> View
+                  </a>
+                </td>
+                <td class="download-action">
+                  <a href="#" class="download-btn" onclick="downloadEvaluation('eval-3')">
+                    <i class="fas fa-download"></i> Download
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="work-integrity">
+                  <span class="percentage-badge good">82%</span>
+                </td>
+                <td class="eval-date">March 31, 2025</td>
+                <td class="view-action">
+                  <a href="#" class="view-btn" onclick="viewEvaluation('eval-4')">
+                    <i class="fas fa-eye"></i> View
+                  </a>
+                </td>
+                <td class="download-action">
+                  <a href="#" class="download-btn" onclick="downloadEvaluation('eval-4')">
+                    <i class="fas fa-download"></i> Download
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td class="work-integrity">
+                  <span class="percentage-badge average">78%</span>
+                </td>
+                <td class="eval-date">March 17, 2025</td>
+                <td class="view-action">
+                  <a href="#" class="view-btn" onclick="viewEvaluation('eval-5')">
+                    <i class="fas fa-eye"></i> View
+                  </a>
+                </td>
+                <td class="download-action">
+                  <a href="#" class="download-btn" onclick="downloadEvaluation('eval-5')">
+                    <i class="fas fa-download"></i> Download
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+ 
+        <div class="evaluation-summary">
+          <div class="summary-card">
+            <h3>Performance Overview</h3>
+            <div class="summary-stats">
+              <div class="stat-item">
+                <span class="stat-label">Total Evaluations</span>
+                <span class="stat-value">5</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-label">Trend</span>
+                <span class="stat-value trend-stable">
+                  <i class="fas fa-minus"></i> Stable
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+ 
+      <!-- Evaluation Detail Modal -->
+      <div id="evaluationModal" class="modal" style="display: none;">
+        <div class="modal-content evaluation-modal-content">
+          <div class="modal-header">
+            <h2 id="modalTitle">Evaluation Details</h2>
+            <span class="close" onclick="closeEvaluationModal()">&times;</span>
+          </div>
+          <div class="modal-body">
+            <div id="evaluationDetails">
+              <!-- Evaluation details will be loaded here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+ 
+  <script src="script.js"></script>
+  <script>
+    // Function to view evaluation details
+    function viewEvaluation(evalId) {
+      const modal = document.getElementById('evaluationModal');
+      const modalTitle = document.getElementById('modalTitle');
+      const evaluationDetails = document.getElementById('evaluationDetails');
+     
+      // Sample evaluation data - in real app, this would come from backend
+      const evaluations = {
+        'eval-1': {
+          date: 'May 12, 2025',
+          score: '80%',
+          criteria: [
+            { name: 'Attendance', score: 5, comment: 'Excellent attendance record, always punctual and prepared.' },
+            { name: 'Communication', score: 3, comment: 'Communicates effectively but could improve clarity in technical discussions.' },
+            { name: 'Accountability', score: 4, comment: 'Consistently meets deadlines and takes responsibility for tasks.' },
+            { name: 'Creativity & Ownership', score: 5, comment: 'Shows excellent initiative and creative problem-solving skills.' },
+            { name: 'Project Delivery', score: 3, comment: 'Delivers quality work but sometimes struggles with complex requirements.' },
+            { name: 'Tech Skills', score: 4, comment: 'Strong technical foundation with good understanding of core concepts.' }
+          ],
+          mentorComment: 'Phelokazi continues to show strong technical aptitude and dedication to her work. Her attendance and ownership of projects are exemplary. Areas for improvement include communication during technical discussions and handling complex project requirements.'
+        }
+      };
+     
+      const evaluation = evaluations[evalId] || evaluations['eval-1'];
+     
+      modalTitle.textContent = `Evaluation - ${evaluation.date}`;
+     
+      evaluationDetails.innerHTML = `
+        <div class="evaluation-overview">
+          <div class="eval-score-display">
+            <h3>Overall Score: ${evaluation.score}</h3>
+            <p class="eval-date">Date: ${evaluation.date}</p>
+          </div>
+        </div>
+       
+        <div class="criteria-breakdown">
+          <h4>Detailed Breakdown</h4>
+          <table class="evaluation-table">
+            <thead>
+              <tr><th>Criteria</th><th>Score</th><th>Comments</th></tr>
+            </thead>
+            <tbody>
+              ${evaluation.criteria.map(criterion => `
+                <tr>
+                  <td>${criterion.name}</td>
+                  <td class="score-cell score-${criterion.score}">${criterion.score}</td>
+                  <td>${criterion.comment}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+       
+        <div class="mentor-comment-section">
+          <h4>Mentor's Summary</h4>
+          <div class="mentor-comment">
+            <p>${evaluation.mentorComment}</p>
+          </div>
+        </div>
+      `;
+     
+      modal.style.display = 'block';
+    }
+   
+    function closeEvaluationModal() {
+      document.getElementById('evaluationModal').style.display = 'none';
+    }
+   
+    // Function to download evaluation as PDF/document
+    function downloadEvaluation(evalId) {
+      // Sample download functionality - in real app, this would generate and download a PDF
+      const evaluations = {
+        'eval-1': { date: 'May 12, 2025', score: '80%' },
+        'eval-2': { date: 'April 28, 2025', score: '85%' },
+        'eval-3': { date: 'April 14, 2025', score: '75%' },
+        'eval-4': { date: 'March 31, 2025', score: '82%' },
+        'eval-5': { date: 'March 17, 2025', score: '78%' }
+      };
+     
+      const evaluation = evaluations[evalId] || evaluations['eval-1'];
+     
+      // Create a simple text content for download
+      const content = `Evaluation Report
+Date: ${evaluation.date}
+Overall Score: ${evaluation.score}
+Student: Phelokazi Madala
+Cohort: Tech Devs
+ 
+Detailed Breakdown:
+- Attendance: 5/5
+- Communication: 3/5
+- Accountability: 4/5
+- Creativity & Ownership: 5/5
+- Project Delivery: 3/5
+- Tech Skills: 4/5
+ 
+Mentor's Summary: Performance evaluation completed.`;
+     
+      // Create and download file
+      const blob = new Blob([content], { type: 'text/plain' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `evaluation_${evaluation.date.replace(/,?\s/g, '_')}.txt`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      window.URL.revokeObjectURL(url);
+    }
+   
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const modal = document.getElementById('evaluationModal');
+      if (event.target == modal) {
+        modal.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+ 
+</html>

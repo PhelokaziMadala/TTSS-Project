@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cohorts - Tech Talent Scorecard System</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <div class="logo-container" style="display: flex; align-items: center; gap: 0.5rem;">
+        <img src="logo.png" alt="CAPACITI Logo" class="logo-img" style="width: 180px;" />
+        <a href="homePage.html" class="home" style="font-size: 30px; color: #070707; text-decoration: none;">&#8962;</a>
+   </div>
+    <div class="sidebar-logo">
+       <div class="logo-text">TTSS</div>
+    </div>
+
+  <ul class="nav-menu">
+    <li>
+      <a href="admin-dashboardPage.html" class="active">
+        <i class="fas fa-chart-line"></i> Dashboard
+      </a>
+    </li>
+    <li>
+      <a href="Admin-cohortsPage.html">
+        <i class="fas fa-users"></i> Cohorts
+      </a>
+    </li>
+    <li>
+      <a href="admin-groupPage.html">
+        <i class="fas fa-layer-group"></i> Groups
+      </a>
+    </li>
+    <li>
+      <a href="admin-evaluationPage.html">
+        <i class="fas fa-clipboard-check"></i> Evaluations
+      </a>
+    </li>
+    <li>
+      <a href="admin-mentorsPage.html">
+        <i class="fas fa-user-tie"></i> Support Team
+      </a>
+    </li>
+    <li>
+      <a href="admin-candidatesPage.html">
+        <i class="fas fa-user-graduate"></i> Candidates
+      </a>
+    </li>
+    <li>
+      <a href="admin-reportPage.html">
+        <i class="fas fa-file-alt"></i> Reports
+      </a>
+    </li>
+    <li>
+      <a href="admin-settingsPage.html">
+        <i class="fas fa-cog"></i> Settings
+      </a>
+    </li>
+    <li>
+      <a href="login.html">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </a>
+    </li>
+  </ul>
+</aside>
+
+      <!-- Sidebar content unchanged -->
+
+    <main class="main-content">
+      <div class="dashboard-header">
+        <h1>Cohorts Management</h1>
+        <div class="user-profile">
+          <div class="user-avatar">A</div>
+          <div class="user-info">
+           <span class="user-name">Brittany Saptoe</span>
+            <span class="user-role">Talent Development Coach</span>
+          </div>
+        </div>
+      </div>
+
+      <section class="active-cohorts">
+        <h2>Active Cohorts</h2>
+        <button class="add-cohort-btn" onclick="openCohortModal()">Add New Cohort</button>
+
+        <!-- Modal -->
+        <div id="cohortModal" class="modal">
+          <div class="modal-content">
+            <h2>Add New Cohort</h2>
+            <form id="cohortForm">
+              <div class="form-group">
+                <label for="cohortName">Cohort Name</label>
+                <input type="text" id="cohortName" name="cohortName" required />
+              </div>
+              <div class="form-group">
+                <label for="startDate">Start Date</label>
+                <input type="date" id="startDate" name="startDate" required />
+              </div>
+              <div class="form-group">
+                <label for="endDate">End Date</label>
+                <input type="date" id="endDate" name="endDate" required />
+              </div>
+              <div class="form-group">
+                <label for="students">Number of Students</label>
+                <input type="number" id="students" name="students" min="1" required />
+              </div>
+              <div class="form-group">
+                <label for="status">Status</label>
+                <select id="status" name="status" required>
+                  <option value="active">Active</option>
+                  <option value="inactive">Inactive</option>
+                </select>
+              </div>
+              <div class="modal-buttons">
+                <button type="button" class="cancel-btn" onclick="closeCohortModal()">Cancel</button>
+                <button type="submit" class="submit-btn">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Cohort Details Modal -->
+        <div id="cohortDetailsModal" class="modal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 id="cohortDetailsTitle">Cohort Details</h2>
+              <span class="close-modal" onclick="closeCohortDetailsModal()">&times;</span>
+            </div>
+            <div id="cohortDetailsContent">
+              <!-- Cohort details will be populated here -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Edit Cohort Modal -->
+        <div id="editCohortModal" class="modal">
+          <div class="modal-content">
+            <h2>Edit Cohort</h2>
+            <form id="editCohortForm">
+              <input type="hidden" id="editCohortId">
+              <div class="form-group">
+                <label for="editCohortName">Cohort Name</label>
+                <input type="text" id="editCohortName" name="cohortName" required />
+              </div>
+              <div class="form-group">
+                <label for="editStartDate">Start Date</label>
+                <input type="date" id="editStartDate" name="startDate" required />
+              </div>
+              <div class="form-group">
+                <label for="editEndDate">End Date</label>
+                <input type="date" id="editEndDate" name="endDate" required />
+              </div>
+              <div class="form-group">
+                <label for="editStudents">Number of Students</label>
+                <input type="number" id="editStudents" name="students" min="1" required />
+              </div>
+              <div class="form-group">
+                <label for="editStatus">Status</label>
+                <select id="editStatus" name="status" required>
+                  <option value="active">Active</option>
+                  <option value="inactive">Inactive</option>
+                </select>
+              </div>
+              <div class="modal-buttons">
+                <button type="button" class="cancel-btn" onclick="closeEditCohortModal()">Cancel</button>
+                <button type="submit" class="submit-btn">Update</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Table -->
+        <div class="cohorts-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Cohort Name</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Students</th>
+                <th>Status</th>
+                <th>Actions</th>
+              
+              </tr>
+            </thead>
+            <tbody id="cohortsBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Script -->
+  <script>
+    const supabase = window.supabase.createClient(
+      "https://ibsblvulrszpjrhreokf.supabase.co",
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imlic2JsdnVscnN6cGpyaHJlb2tmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc3MzE2NTksImV4cCI6MjA2MzMwNzY1OX0.V5sYChoQyKcCWK_T7r4fqVTVeL0zvun2rg67gCCx5EI"
+    );
+
+    document.addEventListener("DOMContentLoaded", async () => {
+      await loadCohorts();
+
+      document.getElementById("cohortForm").addEventListener("submit", async function (e) {
+        e.preventDefault(); // prevent reload
+
+        const cohortName = document.getElementById("cohortName").value;
+        const startDate = document.getElementById("startDate").value;
+        const endDate = document.getElementById("endDate").value;
+        const students = parseInt(document.getElementById("students").value);
+        const status = document.getElementById("status").value;
+
+        const { error } = await supabase
+          .from("cohorts")
+          .insert([{ cohort_name: cohortName, start_date: startDate, end_date: endDate, students, status }]);
+
+        if (error) {
+          console.error("Insert Error:", error);
+          alert("Error inserting cohort: " + error.message);
+        } else {
+          alert("Cohort added successfully!");
+          closeCohortModal();
+          await loadCohorts();
+        }
+      });
+    });
+
+    async function loadCohorts() {
+      const { data, error } = await supabase.from("cohorts").select("*");
+
+      const tbody = document.getElementById("cohortsBody");
+      tbody.innerHTML = "";
+
+      if (error) {
+        console.error("Load Error:", error.message);
+        return;
+      }
+
+      data.forEach((cohort) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${cohort.cohort_name}</td>
+          <td>${new Date(cohort.start_date).toDateString()}</td>
+          <td>${new Date(cohort.end_date).toDateString()}</td>
+          <td>${cohort.students}</td>
+          <td><span class="status-${cohort.status.toLowerCase()}">${cohort.status}</span></td>
+          <td>
+            <div class="action-dropdown">
+              <button onclick="toggleActionMenu(${cohort.id})" class="action-button">Actions</button>
+              <div id="actionMenu${cohort.id}" class="action-menu">
+                <a href="#" onclick="viewCohort(${cohort.id}, '${cohort.cohort_name}')">View</a>
+                <a href="#" onclick="editCohort(${cohort.id})">Edit</a>
+                <a href="#" onclick="deleteCohort(${cohort.id})">Delete</a>
+              </div>
+            </div>
+          </td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    function openCohortModal() {
+      document.getElementById("cohortModal").style.display = "block";
+    }
+
+    function closeCohortModal() {
+      document.getElementById("cohortModal").style.display = "none";
+      document.getElementById("cohortForm").reset();
+    }
+
+    // Action menu functions
+    function toggleActionMenu(cohortId) {
+      const menu = document.getElementById(`actionMenu${cohortId}`);
+      const allMenus = document.querySelectorAll('.action-menu');
+
+      // Close all other menus
+      allMenus.forEach(m => {
+        if (m.id !== `actionMenu${cohortId}`) {
+          m.style.display = 'none';
+        }
+      });
+
+      // Toggle current menu
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    }
+
+    // Close menus when clicking outside
+    document.addEventListener('click', function(event) {
+      if (!event.target.closest('.action-dropdown')) {
+        document.querySelectorAll('.action-menu').forEach(menu => {
+          menu.style.display = 'none';
+        });
+      }
+    });
+
+    async function viewCohort(cohortId, cohortName) {
+      const { data, error } = await supabase
+        .from("cohorts")
+        .select("*")
+        .eq("id", cohortId)
+        .single();
+
+      if (error) {
+        console.error("Error fetching cohort details:", error);
+        return;
+      }
+
+      document.getElementById("cohortDetailsTitle").textContent = `${data.cohort_name} - Details`;
+      document.getElementById("cohortDetailsContent").innerHTML = `
+        <div class="cohort-detail-item">
+          <strong>Cohort Name:</strong> ${data.cohort_name}
+        </div>
+        <div class="cohort-detail-item">
+          <strong>Start Date:</strong> ${new Date(data.start_date).toDateString()}
+        </div>
+        <div class="cohort-detail-item">
+          <strong>End Date:</strong> ${new Date(data.end_date).toDateString()}
+        </div>
+        <div class="cohort-detail-item">
+          <strong>Number of Students:</strong> ${data.students}
+        </div>
+        <div class="cohort-detail-item">
+          <strong>Status:</strong> <span class="status-${data.status.toLowerCase()}">${data.status}</span>
+        </div>
+      `;
+
+      document.getElementById("cohortDetailsModal").style.display = "block";
+      document.querySelectorAll('.action-menu').forEach(menu => menu.style.display = 'none');
+    }
+
+    function closeCohortDetailsModal() {
+      document.getElementById("cohortDetailsModal").style.display = "none";
+    }
+
+    async function editCohort(cohortId) {
+      const { data, error } = await supabase
+        .from("cohorts")
+        .select("*")
+        .eq("id", cohortId)
+        .single();
+
+      if (error) {
+        console.error("Error fetching cohort for edit:", error);
+        return;
+      }
+
+      // Populate edit form
+      document.getElementById("editCohortId").value = data.id;
+      document.getElementById("editCohortName").value = data.cohort_name;
+      document.getElementById("editStartDate").value = data.start_date;
+      document.getElementById("editEndDate").value = data.end_date;
+      document.getElementById("editStudents").value = data.students;
+      document.getElementById("editStatus").value = data.status;
+
+      document.getElementById("editCohortModal").style.display = "block";
+      document.querySelectorAll('.action-menu').forEach(menu => menu.style.display = 'none');
+    }
+
+    function closeEditCohortModal() {
+      document.getElementById("editCohortModal").style.display = "none";
+      document.getElementById("editCohortForm").reset();
+    }
+
+    async function deleteCohort(cohortId) {
+      if (confirm("Are you sure you want to delete this cohort? This action cannot be undone.")) {
+        const { error } = await supabase
+          .from("cohorts")
+          .delete()
+          .eq("id", cohortId);
+
+        if (error) {
+          console.error("Error deleting cohort:", error);
+          alert("Error deleting cohort: " + error.message);
+        } else {
+          alert("Cohort deleted successfully!");
+          await loadCohorts();
+        }
+      }
+      document.querySelectorAll('.action-menu').forEach(menu => menu.style.display = 'none');
+    }
+
+    // Handle edit form submission
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById("editCohortForm").addEventListener("submit", async function(e) {
+        e.preventDefault();
+
+        const cohortId = document.getElementById("editCohortId").value;
+        const cohortName = document.getElementById("editCohortName").value;
+        const startDate = document.getElementById("editStartDate").value;
+        const endDate = document.getElementById("editEndDate").value;
+        const students = parseInt(document.getElementById("editStudents").value);
+        const status = document.getElementById("editStatus").value;
+
+        const { error } = await supabase
+          .from("cohorts")
+          .update({
+            cohort_name: cohortName,
+            start_date: startDate,
+            end_date: endDate,
+            students: students,
+            status: status
+          })
+          .eq("id", cohortId);
+
+        if (error) {
+          console.error("Update Error:", error);
+          alert("Error updating cohort: " + error.message);
+        } else {
+          alert("Cohort updated successfully!");
+          closeEditCohortModal();
+          await loadCohorts();
+        }
+      });
+    });
+</script>
+</body>
+</html>

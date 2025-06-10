@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Students - Tech Talent Scorecard System</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <div class="logo-text">TTSS</div>
+      </div>
+      <ul class="nav-menu">
+    <li>
+      <a href="admin-dashboardPage.html" class="active">
+        <i class="fas fa-chart-line"></i> Dashboard
+      </a>
+    </li>
+    <li>
+      <a href="Admin-cohortsPage.html">
+        <i class="fas fa-users"></i> Cohorts
+      </a>
+    </li>
+    <li>
+      <a href="admin-groupPage.html">
+        <i class="fas fa-layer-group"></i> Groups
+      </a>
+    </li>
+    <li>
+      <a href="admin-evaluationPage.html">
+        <i class="fas fa-clipboard-check"></i> Evaluations
+      </a>
+    </li>
+    <li>
+      <a href="admin-mentorsPage.html">
+        <i class="fas fa-user-tie"></i> Support Team
+      </a>
+    </li>
+    <li>
+      <a href="admin-students.htmlS">
+        <i class="fas fa-user-graduate"></i> Candidates
+      </a>
+    </li>
+    <li>
+      <a href="admin-reportPage.html">
+        <i class="fas fa-file-alt"></i> Reports
+      </a>
+    </li>
+    <li>
+      <a href="admin-settings.html">
+        <i class="fas fa-cog"></i> Settings
+      </a>
+    </li>
+    <li>
+      <a href="login.html">
+        <i class="fas fa-sign-out-alt"></i> Logout
+      </a>
+    </li>
+  </ul>
+</aside>
+    </aside>
+
+    <main class="main-content">
+      <div class="dashboard-header">
+        <h1>Candidate Management</h1>
+        <div class="user-profile">
+          <div class="user-avatar">A</div>
+          <div class="user-info">
+            <div class="user-name"><span class="user-name">Brittany Saptoe</span>
+            <span class="user-role">Talent Development Coach</span></div>           
+          </div>
+        </div>
+      </div>
+
+      <div class="filter-container">
+        <div class="filter-options">
+          <div class="filter-group">
+            <label for="cohort-filter">Filter by Cohort</label>
+            <select id="cohort-filter">
+              <option value="">All Cohorts</option>
+              <option value="ai-academy">AI Academy</option>
+              <option value="cloud-computing">Cloud Computing</option>
+              <option value="demand">Demand</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="group-filter">Filter by Group</label>
+            <select id="group-filter">
+              <option value="">All Groups</option>
+              <option value="tech-devs">Tech Devs</option>
+              <option value="data-team">Data Team</option>
+            </select>
+          </div>
+        </div>
+        <button class="add-student-btn">Add New Student</button>
+      </div>
+
+      <div class="students-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Cohort</th>
+              <th>Group</th>
+              <th>Progress</th>
+              <th>Last Evaluation</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Lethu Lingela</td>
+              <td>AI Academy</td>
+              <td>Tech Devs</td>
+              <td>77%</td>
+              <td>May 12, 2025</td>
+              <td><a href="#" class="action-link">View Profile</a></td>
+            </tr>
+            <tr>
+              <td>Lucky Mkhetyeva</td>
+              <td>AI Academy</td>
+              <td>Tech Devs</td>
+              <td>87%</td>
+              <td>May 12, 2025</td>
+              <td><a href="#" class="action-link">View Profile</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

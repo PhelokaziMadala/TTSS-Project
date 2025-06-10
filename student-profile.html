@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile - Tech Talent Scorecard System</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+ 
+<body>
+  <div class="dashboard-container">
+   <aside class="sidebar">
+        <div class="logo-container" style="display: flex; align-items: center; gap: 0.5rem;">
+            <img src="logo.png" alt="CAPACITI Logo" class="logo-img" style="width: 180px;" />
+            <a href="homePage.html" class="home" style="font-size: 30px; color: #070707; text-decoration: none;">&#8962;</a>
+        </div>
+        <div class="sidebar-logo">
+           <div class="logo-text">TTSS</div>
+        </div>
+
+      <ul class="nav-menu">
+        <li>
+          <a href="student-dashboardpage.html" class="active">
+            <i class="fas fa-chart-line"></i> Dashboard
+          </a>
+        </li>
+        <li>
+          <a href="student-evaluationPage.html">
+            <i class="fas fa-clipboard-check"></i> My Evaluations
+          </a>
+        </li>
+        <li>
+          <a href="student-progress.html">
+            <i class="fas fa-chart-bar"></i> Progress Report
+          </a>
+        </li>
+        <li>
+          <a href="student-notification.html">
+            <i class="fas fa-bell"></i> Notifications
+          </a>
+        </li>
+        <li>
+          <a href="student-profile.html">
+            <i class="fas fa-user"></i> My Profile
+          </a>
+        </li>
+        <li>
+          <a href="login.html">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </a>
+        </li>
+      </ul>
+    </aside>
+ 
+    <main class="main-content">
+      <header class="dashboard-header">
+        <h1>My Profile</h1>
+        <div class="user-profile">
+          <div class="user-avatar">P</div>
+          <div class="user-info">
+            <div class="user-name">Phelokazi Madala</div>
+            <div class="user-role">Candidate - Tech Devs</div>
+          </div>
+        </div>
+      </header>
+ 
+      <section class="profile-section">
+        <div class="profile-form-container">
+          <form id="profileForm" class="profile-form">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" name="firstName" value="Phelokazi" class="form-control">
+            </div>
+ 
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" name="lastName" value="Madala" class="form-control">
+            </div>
+ 
+            <div class="form-group">
+              <label for="branch">Group</label>
+              <select id="branch" name="branch" class="form-control">
+                <option value="">Select Group</option>
+                <option value="tech-devs" selected>Tech Devs</option>
+                <option value="data-team">Data Team</option>
+                <option value="ai-academy">Beautiful Minds</option>
+                <option value="cloud-computing">Tech Squads</option>
+                <option value="demand">Artificial X's</option>
+              </select>
+            </div>
+ 
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" class="form-control" placeholder="Enter new password">
+            </div>
+ 
+            <div class="form-group">
+              <label for="confirmPassword">Confirm Password</label>
+              <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="Confirm new password">
+            </div>
+ 
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">Update Changes</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+ 
+  <script src="script.js"></script>
+  <script>
+    // Handle profile form submission
+    document.getElementById('profileForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+     
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+     
+      // Basic password validation
+      if (password && password !== confirmPassword) {
+        alert('Passwords do not match. Please try again.');
+        return;
+      }
+     
+      // Get form data
+      const formData = {
+        firstName: document.getElementById('firstName').value,
+        middleName: document.getElementById('middleName').value,
+        lastName: document.getElementById('lastName').value,
+        branch: document.getElementById('branch').value,
+        password: password
+      };
+     
+      // Here you would typically send this data to your backend
+      console.log('Profile updated:', formData);
+     
+      // Show success message
+      alert('Profile updated successfully!');
+    });
+  </script>
+</body>
+ 
+</html>

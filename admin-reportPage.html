@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports - Tech Talent Scorecard System</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="dashboard-container">
+  <aside class="sidebar">
+       <div class="logo-container" style="display: flex; align-items: center; gap: 0.5rem;">
+            <img src="logo.png" alt="CAPACITI Logo" class="logo-img" style="width: 180px;" />
+            <a href="homePage.html" class="home" style="font-size: 30px; color: #070707; text-decoration: none;">&#8962;</a>
+       </div>
+        <div class="sidebar-logo">
+           <div class="logo-text">TTSS</div>
+        </div>
+
+      <ul class="nav-menu">
+        <li>
+          <a href="admin-dashboardPage.html" class="active">
+            <i class="fas fa-chart-line"></i> Dashboard
+          </a>
+        </li>
+        <li>
+          <a href="Admin-cohortsPage.html">
+            <i class="fas fa-users"></i> Cohorts
+          </a>
+        </li>
+        <li>
+          <a href="admin-groupPage.html">
+            <i class="fas fa-layer-group"></i> Groups
+          </a>
+        </li>
+        <li>
+          <a href="admin-evaluationPage.html">
+            <i class="fas fa-clipboard-check"></i> Evaluations
+          </a>
+        </li>
+        <li>
+          <a href="admin-mentorsPage.html">
+            <i class="fas fa-user-tie"></i> Support Team
+          </a>
+        </li>
+        <li>
+          <a href="admin-students.html">
+            <i class="fas fa-user-graduate"></i> Candidates
+          </a>
+        </li>
+        <li>
+          <a href="admin-reportPage.html">
+            <i class="fas fa-file-alt"></i> Reports
+          </a>
+        </li>
+        <li>
+          <a href="admin-settings.html">
+            <i class="fas fa-cog"></i> Settings
+          </a>
+        </li>
+        <li>
+          <a href="login.html">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </a>
+        </li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="dashboard-header">
+        <h1>Reports</h1>
+        <div class="user-profile">
+          <div class="user-avatar">A</div>
+          <div class="user-info">
+         <span class="user-name">Brittany Saptoe</span>
+            <span class="user-role">Talent Development Coach</span>
+          </div>
+        </div>
+      </div>
+     
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Cohort Performance</h2>
+            <p class="card-subtitle">Overall performance metrics by cohort</p>
+          </div>
+          <button class="btn generate-report-btn" data-report-type="cohort">Generate Report</button>
+        </div>
+       
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Student Progress</h2>
+            <p class="card-subtitle">Individual student performance tracking</p>
+          </div>
+          <button class="btn generate-report-btn" data-report-type="student">Generate Report</button>
+        </div>
+       
+        <div class="card">
+          <div class="card-header">
+            <h2 class="card-title">Evaluation Summary</h2>
+            <p class="card-subtitle">Summary of all evaluations</p>
+          </div>
+          <button class="btn generate-report-btn" data-report-type="evaluation">Generate Report</button>
+        </div>
+      </div>
+ 
+      <!-- Custom Reports Section -->
+      <div class="custom-reports-section">
+        <div class="section-header">
+          <h2>Custom Reports</h2>
+          <button class="btn create-report-btn">
+            <i class="fas fa-plus"></i> Create New
+          </button>
+        </div>
+       
+        <div class="reports-table-container">
+          <table class="reports-table">
+            <thead>
+              <tr>
+                <th>Report Name</th>
+                <th>Type</th>
+                <th>Created By</th>
+                <th>Last Generated</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="reports-table-body">
+              <!-- Reports will be loaded here by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+ 
+  <!-- Toast notification -->
+  <div id="toast" class="toast">
+    <div class="toast-content">
+      <div class="toast-title">Success</div>
+      <div class="toast-message">Operation completed successfully</div>
+    </div>
+  </div>
+ 
+  <script>
+    // JavaScript for report page
+// Reports data - in a real application, this would come from an API
+const sampleReports = [
+    {
+      id: 1,
+      name: "Q2 Cohort Performance",
+      type: "cohort",
+      createdBy: "Admin User",
+      generatedAt: "2023-06-15"
+    },
+    {
+      id: 2,
+      name: "Web Development Student Progress",
+      type: "student",
+      createdBy: "Admin User",
+      generatedAt: "2023-07-10"
+    },
+    {
+      id: 3,
+      name: "Technical Interview Evaluations",
+      type: "evaluation",
+      createdBy: "Admin User",
+      generatedAt: "2023-08-05"
+    }
+  ];
+ 
+  // DOM elements
+  const reportsTableBody = document.getElementById('reports-table-body');
+  const generateReportButtons = document.querySelectorAll('.generate-report-btn');
+  const createReportBtn = document.querySelector('.create-report-btn');
+  const toast = document.getElementById('toast');
+ 
+  // Display reports in the table
+  function displayReports(reports) {
+    if (reports.length === 0) {
+      reportsTableBody.innerHTML = `
+        <tr>
+          <td colspan="5" class="empty-state">No reports found. Generate a report to get started.</td>
+        </tr>
+      `;
+      return;
+    }
+ 
+    reportsTableBody.innerHTML = reports.map(report => `
+      <tr>
+        <td>${report.name}</td>
+        <td>${capitalizeFirstLetter(report.type)}</td>
+        <td>${report.createdBy}</td>
+        <td>${formatDate(report.generatedAt)}</td>
+        <td>
+          <div class="action-buttons">
+            <button class="action-btn download-btn" data-id="${report.id}" title="Download">
+              <i class="fas fa-download"></i>
+            </button>
+            <button class="action-btn edit-btn" data-id="${report.id}" title="Edit">
+              <i class="fas fa-edit"></i>
+            </button>
+            <button class="action-btn delete delete-btn" data-id="${report.id}" title="Delete">
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
+    `).join('');
+ 
+    // Add event listeners to action buttons
+    document.querySelectorAll('.download-btn').forEach(btn => {
+      btn.addEventListener('click', () => handleDownload(parseInt(btn.dataset.id)));
+    });
+ 
+    document.querySelectorAll('.edit-btn').forEach(btn => {
+      btn.addEventListener('click', () => handleEdit(parseInt(btn.dataset.id)));
+    });
+ 
+    document.querySelectorAll('.delete-btn').forEach(btn => {
+      btn.addEventListener('click', () => handleDelete(parseInt(btn.dataset.id)));
+    });
+  }
+ 
+  // Generate report handler
+  function handleGenerateReport(type) {
+    // In a real application, this would make an API call
+    showToast('Report Generated', `Your ${type} report has been generated successfully.`);
+   
+    // Simulate adding a new report
+    const newReport = {
+      id: sampleReports.length + 1,
+      name: `New ${capitalizeFirstLetter(type)} Report`,
+      type: type,
+      createdBy: "Admin User",
+      generatedAt: new Date().toISOString().split('T')[0]
+    };
+   
+    sampleReports.push(newReport);
+    displayReports(sampleReports);
+  }
+ 
+  // Download report handler
+  function handleDownload(id) {
+    const report = sampleReports.find(r => r.id === id);
+    showToast('Download Started', `Downloading ${report.name}...`);
+    // In a real application, this would initiate a file download
+  }
+ 
+  // Edit report handler
+  function handleEdit(id) {
+    const report = sampleReports.find(r => r.id === id);
+    showToast('Edit Report', `Editing ${report.name}...`);
+    // In a real application, this would open an edit form
+  }
+ 
+  // Delete report handler
+  function handleDelete(id) {
+    const report = sampleReports.find(r => r.id === id);
+    const confirmDelete = confirm(`Are you sure you want to delete "${report.name}"?`);
+   
+    if (confirmDelete) {
+      const index = sampleReports.findIndex(r => r.id === id);
+      sampleReports.splice(index, 1);
+      displayReports(sampleReports);
+      showToast('Report Deleted', `${report.name} has been deleted.`);
+    }
+  }
+ 
+  // Create new report handler
+  function handleCreateReport() {
+    showToast('Create Report', 'This functionality will be implemented in future versions.');
+    // In a real application, this would open a form to create a new report
+  }
+ 
+  // Show toast notification
+  function showToast(title, message) {
+    const toastTitle = toast.querySelector('.toast-title');
+    const toastMessage = toast.querySelector('.toast-message');
+   
+    toastTitle.textContent = title;
+    toastMessage.textContent = message;
+   
+    toast.classList.add('show');
+   
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 3000);
+  }
+ 
+  // Helper function to capitalize the first letter of a string
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+ 
+  // Helper function to format date
+  function formatDate(dateString) {
+    const options = { year: 'numeric', month: 'short', day: 'numeric' };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  }
+ 
+  // Add event listeners
+  generateReportButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const reportType = button.dataset.reportType;
+      handleGenerateReport(reportType);
+    });
+  });
+ 
+  createReportBtn.addEventListener('click', handleCreateReport);
+ 
+  // Initialize the page
+  document.addEventListener('DOMContentLoaded', () => {
+    displayReports(sampleReports);
+  });
+  </script>
+</body>
+</html>
+ 

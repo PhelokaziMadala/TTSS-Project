@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Groups - Tech Talent Scorecard System</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="dashboard-container">
+  <aside class="sidebar">
+       <div class="logo-container" style="display: flex; align-items: center; gap: 0.5rem;">
+            <img src="logo.png" alt="CAPACITI Logo" class="logo-img" style="width: 180px;" />
+            <a href="homePage.html" class="home" style="font-size: 30px; color: #070707; text-decoration: none;">&#8962;</a>
+       </div>
+        <div class="sidebar-logo">
+           <div class="logo-text">TTSS</div>
+        </div>
+
+      <ul class="nav-menu">
+        <li>
+          <a href="admin-dashboardPage.html" class="active">
+            <i class="fas fa-chart-line"></i> Dashboard
+          </a>
+        </li>
+        <li>
+          <a href="Admin-cohortsPage.html">
+            <i class="fas fa-users"></i> Cohorts
+          </a>
+        </li>
+        <li>
+          <a href="admin-groupPage.html">
+            <i class="fas fa-layer-group"></i> Groups
+          </a>
+        </li>
+        <li>
+          <a href="admin-evaluationPage.html">
+            <i class="fas fa-clipboard-check"></i> Evaluations
+          </a>
+        </li>
+        <li>
+          <a href="admin-mentorsPage.html">
+            <i class="fas fa-user-tie"></i> Support Team
+          </a>
+        </li>
+        <li>
+          <a href="admin-students.html">
+            <i class="fas fa-user-graduate"></i> Candidates
+          </a>
+        </li>
+        <li>
+          <a href="admin-reportPage.html">
+            <i class="fas fa-file-alt"></i> Reports
+          </a>
+        </li>
+        <li>
+          <a href="admin-settings.html">
+            <i class="fas fa-cog"></i> Settings
+          </a>
+        </li>
+        <li>
+          <a href="login.html">
+            <i class="fas fa-sign-out-alt"></i> Logout
+          </a>
+        </li>
+      </ul>
+    </aside>
+ 
+    <main class="main-content">
+      <div class="dashboard-header">
+        <h1>Groups Management</h1>
+        <div class="user-profile">
+          <div class="user-avatar">A</div>
+          <div class="user-info">
+            <span class="user-name">Brittany Saptoe</span>
+            <span class="user-role">Talent Development Coach</span>
+          </div>
+        </div>
+      </div>
+ 
+      <div class="filter-container">
+        <div class="filter-group">
+          <label for="cohort-filter">Filter by Cohort</label>
+          <select id="cohort-filter">
+            <option value="">All Cohorts</option>
+            <option value="ai-academy">AI Academy</option>
+            <option value="cloud-computing">Cloud Computing</option>
+            <option value="demand">Demand</option>
+          </select>
+        </div>
+        <button class="add-group-btn">Add New Group</button>
+      </div>
+ 
+      <div class="groups-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Group Name</th>
+              <th>Cohort</th>
+              <th>Members</th>
+              <th>Mentor</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Tech Devs</td>
+              <td>AI Academy</td>
+              <td>5</td>
+              <td>John Smith</td>
+              <td><span class="status-active">Active</span></td>
+              <td><a href="#" class="action-link">Manage</a></td>
+            </tr>
+            <tr>
+              <td>Data Team</td>
+              <td>AI Academy</td>
+              <td>4</td>
+              <td>Sarah Johnson</td>
+              <td><span class="status-active">Active</span></td>
+              <td><a href="#" class="action-link">Manage</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
