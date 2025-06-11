@@ -42,7 +42,7 @@ This project was completed as part of a **group collaboration**. My contribution
 
 - HTML / CSS / JavaScript
 - Figma (for UI/UX design and prototyping)  
-- Firebase
+- Supabase
 
 ##Demo
 https://musical-druid-18d2c1.netlify.app/
